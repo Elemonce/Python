@@ -1,0 +1,7 @@
+Descriptor
+
+
+1. Electric circuits, switches (binary). How does CPU understand machine code.
+2. Assembly language, assemblers.
+3. Compilers and high-level languages.
+4. Interpreters and virtual machines. 
