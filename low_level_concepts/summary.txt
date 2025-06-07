@@ -1,0 +1,3 @@
+Compilers are things which take the programming language that we have and translate that programming language into the sequence of instructions that run at the chip of the computer.
+
+Bootstrapping is building something from the very beginning, and then using what one has built to improve itself. (Like trying to pull oneself by one's boot straps). 

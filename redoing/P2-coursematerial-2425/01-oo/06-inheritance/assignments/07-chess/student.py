@@ -35,7 +35,7 @@ class ChessPiece(ABC):
     def __init__(self, position, color):
         if not self.is_valid_position(position):
             raise ValueError("invalid position")
-        if not self._is_valid_color(color):
+        if not self.is_valid_color(color):
             raise ValueError("invalid color")
         self.__position = position
         self.__color = color
@@ -57,50 +57,34 @@ class ChessPiece(ABC):
         return 0 <= position.x < 8 and 0 <= position.y < 8
     
     @abstractmethod
-    def is_valid_move(self, position):
+    def is_legal_move(self, position):
         ...
+
+    def move(self, new_position):
+        if not self.is_legal_move(new_position):
+            raise ValueError("illegal move")
+        self.__position = new_position
 
 class Pawn(ChessPiece):
     def __init__(self, position, color):
         super().__init__(position, color)
 
     def is_legal_move(self, new_position):
-        if not self.is_valid_position(new_position):
+        if not ChessPiece.is_valid_position(new_position):
             return False
         direction = 1 if self.color == 'white' else -1
         return self.position.move(0, direction) == new_position
 
 
 
-class King:
+class King(ChessPiece):
     def __init__(self, position, color):
-        if not King.is_valid_position(position):
-            raise ValueError('invalid position')
-        if not King.is_valid_color(color):
-            raise ValueError('invalid color')
-        self.__position = position
-        self.__color = color
-
-    @property
-    def position(self):
-        return self.__position
-
-    @property
-    def color(self):
-        return self.__color
-
-    @staticmethod
-    def is_valid_color(color):
-        return color in ['black', 'white']
-
-    @staticmethod
-    def is_valid_position(position):
-        return 0 <= position.x < 8 and 0 <= position.y < 8
+        super().__init__(position, color)
 
     def is_legal_move(self, new_position):
         if new_position == self.position:
             return False
-        if not King.is_valid_position(new_position):
+        if not ChessPiece.is_valid_position(new_position):
             return False
         if abs(new_position.x - self.position.x) > 1:
             return False
@@ -108,7 +92,4 @@ class King:
             return False
         return True
 
-    def move(self, new_position):
-        if not self.is_legal_move(new_position):
-            raise ValueError("illegal move")
-        self.__position = new_position
+

@@ -54,31 +54,31 @@ class Circle(Shape):
         return pi * self.radius ** 2
     
 
-Yikes = Circle
+# Yikes = Circle
 
-g = Yikes(5)
+# g = Yikes(5)
 
-print(g.area)
+# print(g.area)
 
-Foo = type("Foo", (), {"bar": True, "what":"test"})
+# Foo = type("Foo", (), {"bar": True, "what":"test"})
 
-print(Foo.bar)
+# print(Foo.bar)
 
-e = Foo()
+# e = Foo()
 
-print(e.what)
+# print(e.what)
 
-circle = Circle(5)
+# circle = Circle(5)
 
-def test():
-    print("hello")
-Circle.test = test()
+# def test():
+#     print("hello")
+# Circle.test = test()
 
-circle.test
+# circle.test
 
-def test_2(self):
-    print("hello self")
+# def test_2(self):
+#     print("hello self")
 
-Circle.test_2 = test_2
+# Circle.test_2 = test_2
 
-circle.test_2()
+# circle.test_2()
