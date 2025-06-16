@@ -108,3 +108,23 @@ print(find_repeating_words("this is is a test this is also a test"))
 
 
 print(" ".join("jfeuw jeiwf fjwie     jfweiofwe    ewfj wei f".split()))
+
+
+# def is_sorted(ns):
+#     print(list(zip(ns)))
+#     print(list(zip(ns[1:])))
+#     print(len(list(x <= y for x, y in zip(ns, ns[1:]))))
+#     return all(x <= y for x, y in zip(ns, ns[1:]))
+
+def is_sorted(ns):
+    return all(ns[i] <= ns[i+1] for i in range(len(ns) - 1))
+test = [1, 2, 3, 4]
+test2 = [1, 2, 3, 4, 5, 21, 1, 1, 2, 5, 25]
+
+print(is_sorted(test2))
+print(list(zip(test, test[1:])))
+
+
+lst = [1,2 ,2,2,2,2,2]
+
+print(lst.count(2))
