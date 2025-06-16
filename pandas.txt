@@ -1,0 +1,3 @@
+Figure and Axes
+
+A figure keeps track of all the child axes, a 
